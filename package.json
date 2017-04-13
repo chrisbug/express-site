@@ -1,0 +1,25 @@
+{
+  "name": "express-site",
+  "version": "1.0.0",
+  "description": "Building site with EXPRESS and node running on the backend.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisbug/express-site.git"
+  },
+  "author": "Chris Buggy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisbug/express-site/issues"
+  },
+  "homepage": "https://github.com/chrisbug/express-site#readme",
+  "dependencies":{
+    "body-parser": "*",
+    "express": "*",
+    "jade": "*",
+    "nodemailer": "*"
+  }
+}
