@@ -25,7 +25,34 @@ app.get('/contact', function(req, res){
 });
 
 app.post('/contact/send', function(req, res){
-  console.log('test');
+  var transporter = nodemailer.createTransport({
+    service:'Gmail',
+    auth: {
+      user: '',
+      pass: ''
+    }
+
+  });
+
+  //setting up mail options
+  var mailOptions = {
+    from: 'Chris Buggy <christopher199348@gmail.com>',
+    to: 'christopher199348@gmail.com',
+    subject: 'MY NODEMAILER USING EXPRESS!',
+    text: 'You have a submision with the following details.... Name: '+ req.body.name + ' Email: ' + req.body.email + 'Message: ' + req.body.message,
+    html: '<p>You have a submision with the following details....<p><ul><li>Name: ' + req.body.name + '</li><li>Email: ' + req.body.email + '</li><li>Message: ' + req.body.message + '</li></ul>'
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      console.log(error);
+      res.redirect('/');
+    }else {
+      console.log('Message Sent: ' + info.response);
+      res.redirect('/');
+    }
+  });
+
 });
 
 app.listen(3000);
