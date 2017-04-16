@@ -9,7 +9,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({exteded: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req,res){
@@ -22,6 +22,10 @@ app.get('/about', function(req,res){
 
 app.get('/contact', function(req, res){
   res.render('contact');
+});
+
+app.post('/contact/send', function(req, res){
+  console.log('test');
 });
 
 app.listen(3000);
